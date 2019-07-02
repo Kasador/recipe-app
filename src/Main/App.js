@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import RecipeSearch from '../Components/RecipeSearch';
 
 function App() {
+    const [counter, setCounter] = useState({
+        counter: 0
+    });
+
     return (
         <div className="App">
-            <RecipeSearch />
+            <RecipeSearch counter={counter.counter} />
         </div>
     );
 }

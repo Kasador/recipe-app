@@ -1,9 +1,9 @@
 import React from 'react';
-
-const RecipeSearch = () => {
+// testing
+const RecipeSearch = (props) => {
     return (
         <div className="RecipeSearch">
-            <p>test</p>
+            <p>{props.counter}</p>
         </div> 
     );
 }
