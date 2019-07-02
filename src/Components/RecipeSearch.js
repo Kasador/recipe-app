@@ -1,9 +1,10 @@
 import React from 'react';
-// testing
-const RecipeSearch = (props) => {
+
+const RecipeSearch = () => {
     return (
         <div className="RecipeSearch">
-            <p>{props.counter}</p>
+            <input type="search" placeholder="Search recipes..." />
+            <i class="fas fa-search"></i>
         </div> 
     );
 }

@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
-import RecipeSearch from '../Components/RecipeSearch';
+import React from 'react';
+import Nav from '../Components/Nav';
+// import Logo from '../Images/logo.png';
 
 function App() {
-    const [counter, setCounter] = useState({
-        counter: 0
-    });
-
     return (
         <div className="App">
-            <RecipeSearch counter={counter.counter} />
+            <Nav />
         </div>
     );
 }

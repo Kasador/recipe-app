@@ -1,4 +1,33 @@
+// colors
+$primary-color: #fff9e7;
+$secondary-color: #ff8080;
+$perfect-black: #222;
+
 body {
     font-family: 'Montserrat', sans-serif;
     width: 100%;
+    background-color: $primary-color;
+    color: #222;
+}
+.RecipeSearch {
+    display: flex;
+    justify-content: center;
+}
+.Nav {
+    position: fixed;
+    transform: translateY(-50%);
+    top: 50%;
+    width: 20%;
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-right: 5px solid $secondary-color;
+        height: 80vh;
+        
+        ul {
+            text-align: center;
+        }
+    }
 }
