@@ -1,5 +1,6 @@
 import React, { useState }from 'react';
 import Axios from 'axios';
+import ResultSearch from './ResultSearch';
 
 const RecipeSearch = () => {
     // API data and info
@@ -42,7 +43,8 @@ const RecipeSearch = () => {
                     setSearch({
                         value: '',
                         recipes: res.data,
-                        isLoaded: true
+                        isLoaded: true,
+                        save: searchItem
                     })
                 }
             });
@@ -51,11 +53,18 @@ const RecipeSearch = () => {
 
     return (
         <div className="RecipeSearch">
-            <div className="Search">
-                <span className="fa fa-search"></span>
-                <input placeholder="Search recipes..." value={search.value} onChange={handlerUpdateSearchValue} />
-                <button className="SearchBtn" onClick={handleSearchRequest}>Search</button>
+            {/* search box and header picture */}
+            <div className="RecipeSearchWrapper">
+                <div className="Search">
+                    <span className="fa fa-search"></span>
+                    <input placeholder="Search recipes..." value={search.value} onChange={handlerUpdateSearchValue} />
+                    <button className="SearchBtn" onClick={handleSearchRequest}>Search</button>
+                </div>
             </div>
+            {/* results */}
+            <ResultSearch 
+                food={search.save} 
+                loaded={search.isLoaded} />
         </div> 
     );
 }

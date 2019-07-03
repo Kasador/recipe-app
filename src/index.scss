@@ -9,7 +9,7 @@ body {
     color: $perfect-black;
     background-color: $primary-color;
 }
-.RecipeSearch {
+.RecipeSearchWrapper {
     background: url(./Images/background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -53,4 +53,7 @@ body {
 .SearchBtn:hover {
   background-color: $primary-color;
   font-size: 1.6rem;
+}
+.ResultSearch {
+  padding: 50px;
 }
