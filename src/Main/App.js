@@ -1,11 +1,12 @@
 import React from 'react';
-import Nav from '../Components/Nav';
-// import Logo from '../Images/logo.png';
+import RecipeSearch from '../Components/RecipeSearch';
+import ResultSearch from '../Components/ResultSearch';
 
 function App() {
     return (
         <div className="App">
-            <Nav />
+            <RecipeSearch />
+            <ResultSearch />
         </div>
     );
 }

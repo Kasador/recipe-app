@@ -1,33 +1,41 @@
 // colors
 $primary-color: #fff9e7;
-$secondary-color: #ff8080;
+$secondary-color: #fff;
 $perfect-black: #222;
 
 body {
     font-family: 'Montserrat', sans-serif;
     width: 100%;
+    color: $perfect-black;
     background-color: $primary-color;
-    color: #222;
 }
 .RecipeSearch {
+    background: url(./Images/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0, 0;
+    height: 300px;
     display: flex;
     justify-content: center;
 }
-.Nav {
-    position: fixed;
-    transform: translateY(-50%);
-    top: 50%;
-    width: 20%;
-
-    nav {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        border-right: 5px solid $secondary-color;
-        height: 80vh;
-        
-        ul {
-            text-align: center;
-        }
-    }
+.search {
+  position: relative;
+  color: #aaa;
+  font-size: 2rem;
+  transform: translateY(40%);
+}
+.search input {
+  width: 350px;
+  height: 60px;
+  background: #fcfcfc;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+  font-size: 1.5rem;
+}
+.search input { text-indent: 55px;}
+.search .fa-search { 
+  position: absolute;
+  top: 15px;
+  left: 15px;
 }
