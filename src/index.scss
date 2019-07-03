@@ -18,13 +18,13 @@ body {
     display: flex;
     justify-content: center;
 }
-.search {
+.Search {
   position: relative;
   color: #aaa;
   font-size: 2rem;
-  transform: translateY(40%);
+  transform: translateY(30%);
 }
-.search input {
+.Search input {
   width: 350px;
   height: 60px;
   background: #fcfcfc;
@@ -33,9 +33,24 @@ body {
   box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
   font-size: 1.5rem;
 }
-.search input { text-indent: 55px;}
-.search .fa-search { 
+.Search input { text-indent: 55px;}
+.Search .fa-search { 
   position: absolute;
   top: 15px;
   left: 15px;
+}
+.SearchBtn {
+  position: absolute;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  transform: translate(-90px, 80px);
+  cursor: pointer;
+  background-color: $secondary-color;
+  border: 2px solid $perfect-black;
+
+  transition: all 0.3s;
+}
+.SearchBtn:hover {
+  background-color: $primary-color;
+  font-size: 1.6rem;
 }
