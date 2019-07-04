@@ -1,4 +1,4 @@
-import React, { useState }from 'react';
+import React, { useState, useEffect }from 'react';
 import Axios from 'axios';
 import ResultSearch from './ResultSearch';
 
@@ -7,19 +7,23 @@ const RecipeSearch = () => {
     const AppId = '4ed96582',
         AppKey = '62c3a0bc3f607c7c08a09fbe51007e87';
 
-    let searchItem;
+    let searchItem,
+        previousSearch;
 
     // useState hook for input search value and store get response
     const [search, setSearch] = useState({
         value: '',
         recipes: [],
-        isLoaded: false
+        save: '',
+        isLoaded: false,
+        results: 0,
+        outOf: 0
     })
 
     // search data
-    const handlerUpdateSearchValue = (e) => {
+    const handleUpdateSearchValue = (e) => {
         setSearch({...search, value: e.target.value})
-        console.log(search);
+        console.log(search.value);
     }
 
     // on click search button, query API and get response
@@ -28,28 +32,42 @@ const RecipeSearch = () => {
             alert('The search box is empty!');
         } else {
             searchItem = search.value;
+            previousSearch = search.value;
             console.log(searchItem);
 
             Axios.get('https://api.edamam.com/search?q=' + searchItem + '&app_id=' + AppId + '&app_key=' + AppKey + '&from=0&to=100')
             .then(res => {
                 console.log(res.data);
-                console.log(res.data.hits.length);
 
                 if (res.data.hits.length === 0) {
-                    alert('No results found...');
+                    setSearch({...search, value: '', save: previousSearch, isLoaded: true, results: 0, outOf: 0});
                 } else if (res.data.hits.length !== 0) {
-                    alert('Found ' + res.data.hits.length + ' results out of ' + res.data.count + ' total recipes.');
-
                     setSearch({
                         value: '',
                         recipes: res.data,
+                        save: previousSearch,
                         isLoaded: true,
-                        save: searchItem
-                    })
+                        results: res.data.hits.length,
+                        outOf: res.data.count
+                    });
                 }
             });
         }
     }
+
+    // on enter key pressed, query search value
+    const handleKeyPress = (e) => {
+        if(e.keyCode === 13){
+            handleSearchRequest();
+            // console.log("You've pressed the enter key!");
+        }
+     }
+
+    useEffect(() => {
+        if (search.isLoaded) {
+            console.log(search.recipes); 
+        }
+    })
 
     return (
         <div className="RecipeSearch">
@@ -57,14 +75,16 @@ const RecipeSearch = () => {
             <div className="RecipeSearchWrapper">
                 <div className="Search">
                     <span className="fa fa-search"></span>
-                    <input placeholder="Search recipes..." value={search.value} onChange={handlerUpdateSearchValue} />
+                    <input placeholder="Search recipes..." value={search.value} onChange={handleUpdateSearchValue} onKeyDown={handleKeyPress} />
                     <button className="SearchBtn" onClick={handleSearchRequest}>Search</button>
                 </div>
             </div>
             {/* results */}
             <ResultSearch 
                 food={search.save} 
-                loaded={search.isLoaded} />
+                loaded={search.isLoaded}
+                results={search.results}
+                outOf={search.outOf} />
         </div> 
     );
 }
