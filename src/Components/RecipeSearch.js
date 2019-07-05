@@ -1,6 +1,7 @@
 import React, { useState, useEffect }from 'react';
 import Axios from 'axios';
 import ResultSearch from './ResultSearch';
+import RecipeCard from '../Components/RecipeCard';
 
 const RecipeSearch = () => {
     // API data and info
@@ -67,7 +68,7 @@ const RecipeSearch = () => {
         if (search.isLoaded) {
             console.log(search.recipes); 
         }
-    })
+    });
 
     return (
         <div className="RecipeSearch">
@@ -85,6 +86,10 @@ const RecipeSearch = () => {
                 loaded={search.isLoaded}
                 results={search.results}
                 outOf={search.outOf} />
+            {/* Recipe cards */}
+            <RecipeCard 
+                info={search.recipes}
+                loaded={search.isLoaded} />
         </div> 
     );
 }

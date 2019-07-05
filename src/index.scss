@@ -3,20 +3,22 @@ $primary-color: #fff9e7;
 $secondary-color: #fff;
 $perfect-black: #222;
 
+// main body
 body {
-    font-family: 'Montserrat', sans-serif;
-    width: 100%;
-    color: $perfect-black;
-    background-color: $primary-color;
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  color: $perfect-black;
+  background-color: $primary-color;
 }
+// searchbox and header image
 .RecipeSearchWrapper {
-    background: url(./Images/background.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 0, 0;
-    height: 300px;
-    display: flex;
-    justify-content: center;
+  background: url(./Images/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0, 0;
+  height: 300px;
+  display: flex;
+  justify-content: center;
 }
 .Search {
   position: relative;
@@ -54,6 +56,63 @@ body {
   background-color: $primary-color;
   font-size: 1.6rem;
 }
+// result text
 .ResultsText {
   padding-left: 40px;
+}
+// recipe card with info
+.RecipeCard {
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+}
+.RecipeCardWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px;
+  border: 2px solid $perfect-black;
+  width: 400px;
+  height: auto;
+  border-radius: 5px;
+  background-color: $secondary-color;
+  -webkit-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+	box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+}
+.RecipeTopHalf {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid lighten($perfect-black, 50%);
+  padding: 20px;
+}
+.RecipeBottomHalf {
+  display: flex;
+  padding: 20px;
+}
+.RecipeImages {
+  width: 100px;
+  height: 100px;
+  border: 2px solid $perfect-black;
+  border-radius: 100%;
+  margin: 0px 10px;
+}
+.RecipeMainInfo {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0px 10px;
+}
+.RecipeTitle {
+  font-size: 2rem;
+  margin: 10px;
+}
+.RecipeInfoBasic {
+  display: flex;
+
+  span {
+    padding: 5px;
+    font-size: 0.8rem;
+  }
 }
