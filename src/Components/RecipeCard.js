@@ -27,27 +27,31 @@ const RecipeCard = (props) => {
 
     return (
         <div className="RecipeCard">
-            {data.isLoaded ? <div className="RecipeCardWrapper">
-                <div className="RecipeTopHalf">
-                    <img src={Img} alt="test" className="RecipeImages" />
-                    <div className="RecipeMainInfo">
-                        <h1 className="RecipeTitle">Recipe Title</h1>
-                        <div className="RecipeInfoBasic">
-                            <span className="RecipeTime">Prep Time: 2:00</span>
-                            <span className="RecipeCalories">Total Cal: 566</span>
+            {data.isLoaded ?
+            <>{data.recipes.map((recipe) => {
+            return (
+                <div className="RecipeCardWrapper">
+                    <div className="RecipeTopHalf">
+                        <img src={Img} alt="test" className="RecipeImages" />
+                        <div className="RecipeMainInfo">
+                            <h1 className="RecipeTitle">{recipe.hits.recipe.label}</h1>
+                            <div className="RecipeInfoBasic">
+                                <span className="RecipeTime">Prep Time: 2:00</span>
+                                <span className="RecipeCalories">Total Cal: 566</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className="RecipeBottomHalf">
-                    <div className="RecipeIngredients">
-                        <ul>
-                            <li>ingredient name</li>
-                            <li>ingredient name</li>
-                            <li>ingredient name</li>
-                        </ul>
+                    <div className="RecipeBottomHalf">
+                        <div className="RecipeIngredients">
+                            <ul>
+                                <li>ingredient name</li>
+                                <li>ingredient name</li>
+                                <li>ingredient name</li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            </div> : null}
+                </div>);
+            })}</> : null}
         </div>
     );
 }
