@@ -2,6 +2,7 @@ import React, { useState, useEffect }from 'react';
 import Axios from 'axios';
 import ResultSearch from './ResultSearch';
 import RecipeCard from '../Components/RecipeCard';
+import Loading from '../Images/loading.gif';
 
 const RecipeSearch = () => {
     // API data and info
@@ -32,6 +33,7 @@ const RecipeSearch = () => {
         if (search.value === '') {
             alert('The search box is empty!');
         } else {
+            setSearch({...search, isLoaded: false, recipes: []});
             searchItem = search.value;
             previousSearch = search.value;
             console.log(searchItem);
@@ -52,6 +54,8 @@ const RecipeSearch = () => {
                         outOf: res.data.count
                     });
                 }
+            }).catch((error) => {
+                console.log(error);
             });
         }
     }
@@ -65,6 +69,7 @@ const RecipeSearch = () => {
      }
 
     useEffect(() => {
+        console.log(search.isLoaded);
         if (search.isLoaded) {
             console.log(search.recipes); 
         }
