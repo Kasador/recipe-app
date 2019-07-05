@@ -8,23 +8,22 @@ const RecipeCard = (props) => {
     });
 
     const handleInfo = () => {
-        if (props.loaded && props.info.length !== 0) {
+        if (props.loaded && props.results !== 0) {
             setData({
                 recipes: props.info,
                 isLoaded: true
             });
-        } else if (props.loaded && props.info.length === 0) {
+        } else if (props.loaded && props.results === 0) {
             setData({
                 recipes: [],
                 isLoaded: false
             });
         }
-        console.log(props.loaded);
     }
 
     useEffect(() => {
         handleInfo();
-    }, [props.loaded]);
+    }, [props.results]);
 
     return (
         <div className="RecipeCard">

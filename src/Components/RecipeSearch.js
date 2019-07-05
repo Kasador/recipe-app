@@ -89,8 +89,9 @@ const RecipeSearch = () => {
             {/* Recipe cards */}
             <RecipeCard 
                 info={search.recipes}
-                loaded={search.isLoaded} />
-        </div> 
+                loaded={search.isLoaded}
+                results={search.results} />
+        </div>
     );
 }
 
