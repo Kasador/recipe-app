@@ -3,7 +3,7 @@ import Img from '../Images/test/recipes.png';
 
 const RecipeCard = (props) => {
     const [data, setData] = useState({
-        recipes: [],
+        recipes: props.info,
         isLoaded: props.loaded
     });
 
@@ -22,6 +22,17 @@ const RecipeCard = (props) => {
                     isLoaded: false
                 });
             }
+            
+            const obj = props.info;
+            const result = Object.values(obj);
+
+            console.log(result);
+
+            // const myMap = new Map().set(1,"hey").set(2,"you"),
+            // mapData = JSON.stringify([...myMap]),
+            // values = JSON.parse(mapData).map(d => d[1]);
+            // console.log("mapData:",mapData);
+            // console.log("values:",values);
         }
     }
 
@@ -34,7 +45,7 @@ const RecipeCard = (props) => {
             {data.isLoaded ?
                 <div className="RecipeCardWrapper">
                     <div className="RecipeTopHalf">
-                        <img src={Img} alt="test" className="RecipeImages" />
+                        <img src={data.recipes.hits[0].recipe.image} alt="test" className="RecipeImages" />
                         <div className="RecipeMainInfo">
                             <h1 className="RecipeTitle">{data.recipes.hits[0].recipe.label}</h1>
                             <div className="RecipeInfoBasic">
@@ -54,6 +65,9 @@ const RecipeCard = (props) => {
                     </div>
                 </div>
             : null}
+            {/* {data.recipes.map((recipe) => {
+                return <li>{recipe}</li>
+            })} */}
         </div>
     );
 }

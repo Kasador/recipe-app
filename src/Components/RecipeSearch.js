@@ -70,12 +70,12 @@ const RecipeSearch = () => {
         }
      }
 
-    useEffect(() => {
-        console.log(search.isLoaded);
-        if (search.isLoaded) {
-            console.log(search.recipes); 
-        }
-    });
+    // useEffect(() => {
+    //     console.log(search.isLoaded);
+    //     if (search.isLoaded) {
+    //         console.log(search.recipes); 
+    //     }
+    // });
 
     return (
         <div className="RecipeSearch">

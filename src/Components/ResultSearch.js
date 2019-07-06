@@ -2,7 +2,7 @@ import React from 'react';
 
 const ResultSearch = (props) => {
     const styles = {
-        color: 'gray'
+        color: '#8BBE66'
     }
 
     return (
