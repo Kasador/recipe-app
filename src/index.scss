@@ -71,7 +71,8 @@ body {
 .RecipeCard {
   display: flex;
   justify-content: center;
-  margin: 50px;
+  flex-wrap: wrap;
+  margin: 30px;
 }
 .RecipeCardWrapper {
   display: flex;
@@ -79,6 +80,7 @@ body {
   justify-content: center;
   flex-direction: column;
   padding: 30px;
+  margin: 30px;
   border: 2px solid $perfect-black;
   width: 400px;
   height: auto;
@@ -122,4 +124,9 @@ body {
     padding: 5px;
     font-size: 0.8rem;
   }
+}
+.PositionCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
