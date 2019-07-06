@@ -19,7 +19,8 @@ const RecipeSearch = () => {
         save: '',
         isLoaded: false,
         results: 0,
-        outOf: 0
+        outOf: 0,
+        isLoading: false
     })
 
     // search data
@@ -33,7 +34,7 @@ const RecipeSearch = () => {
         if (search.value === '') {
             alert('The search box is empty!');
         } else {
-            setSearch({...search, isLoaded: false, recipes: []});
+            setSearch({...search, isLoaded: false, recipes: [], isLoading: true});
             searchItem = search.value;
             previousSearch = search.value;
             console.log(searchItem);
@@ -43,7 +44,7 @@ const RecipeSearch = () => {
                 console.log(res.data);
 
                 if (res.data.hits.length === 0) {
-                    setSearch({...search, value: '', save: previousSearch, isLoaded: true, results: 0, outOf: 0});
+                    setSearch({...search, value: '', save: previousSearch, isLoaded: true, results: 0, outOf: 0, isLoading: false});
                 } else if (res.data.hits.length !== 0) {
                     setSearch({
                         value: '',
@@ -51,7 +52,8 @@ const RecipeSearch = () => {
                         save: previousSearch,
                         isLoaded: true,
                         results: res.data.hits.length,
-                        outOf: res.data.count
+                        outOf: res.data.count,
+                        isLoading: false
                     });
                 }
             }).catch((error) => {
@@ -86,7 +88,7 @@ const RecipeSearch = () => {
                 </div>
             </div>
             {/* loading */}
-            {!search.isLoaded ? 
+            {search.isLoading ? 
                 <div className="Loading">
                     <img src={Loading} alt="loading" />
                 </div> : null}
