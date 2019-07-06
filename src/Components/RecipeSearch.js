@@ -85,6 +85,11 @@ const RecipeSearch = () => {
                     <button className="SearchBtn" onClick={handleSearchRequest}>Search</button>
                 </div>
             </div>
+            {/* loading */}
+            {!search.isLoaded ? 
+                <div className="Loading">
+                    <img src={Loading} alt="loading" />
+                </div> : null}
             {/* results */}
             <ResultSearch 
                 food={search.save} 

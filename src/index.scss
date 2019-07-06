@@ -10,6 +10,13 @@ body {
   color: $perfect-black;
   background-color: $primary-color;
 }
+// loading gif 
+.Loading {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
 // searchbox and header image
 .RecipeSearchWrapper {
   background: url(./Images/background.jpg);
